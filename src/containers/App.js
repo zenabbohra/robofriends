@@ -7,7 +7,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      robots: []
+      robots: [],
+      searchInput: ''
     }
   }
 
@@ -17,15 +18,19 @@ class App extends Component {
       .then(users => this.setState({robots: users}));
   }
 
-  render() {
+  onInputChange = (event) => {
+    this.setState({searchInput: event.target.value});
+  };
 
-    return !this.state.robots.length
+  render() {
+    const { robots, searchInput } = this.state;
+    const filteredRobots = robots.filter(robot => robot.name.toLowerCase().includes(searchInput.toLowerCase()));
+    return !robots.length
       ? <h1>Loading</h1>
       : <div className='tc'>
-          {/*<h1>Loading</h1>*/}
           <p className='f1'>ROBOFRIENDS</p>
-          <SearchBox />
-          {this.state.robots.map(robot => {
+          <SearchBox onInputChange={this.onInputChange}/>
+          {filteredRobots.map(robot => {
             return <Card id={robot.id} name={robot.name} email={robot.email}/>
           })}
         </div>
