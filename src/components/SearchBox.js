@@ -11,6 +11,6 @@ const SearchBox = ({ onInputChange }) => {
       />
     </div>
   );
-}
+};
 
 export default SearchBox;
