@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import SearchBox from '../components/SearchBox';
 import Card from '../components/Card';
+import Scroll from "../components/Scroll";
 
 class App extends Component {
   constructor(props) {
@@ -30,9 +31,11 @@ class App extends Component {
       : <div className='tc'>
           <p className='f1'>ROBOFRIENDS</p>
           <SearchBox onInputChange={this.onInputChange}/>
-          {filteredRobots.map(robot => {
-            return <Card id={robot.id} name={robot.name} email={robot.email}/>
-          })}
+          <Scroll>
+            {filteredRobots.map(robot => {
+              return <Card id={robot.id} name={robot.name} email={robot.email}/>
+            })}
+          </Scroll>
         </div>
   }
 }
