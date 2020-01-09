@@ -7,20 +7,28 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
+      robots: []
     }
   }
+
+  componentDidMount() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(users => this.setState({robots: users}));
+  }
+
   render() {
-    return (
-      <div className='tc'>
-        {/*<h1>Loading</h1>*/}
-        <p className='f1'>ROBOFRIENDS</p>
-        <SearchBox />
-        <Card/>
-        <Card/>
-        <Card/>
-      </div>
-    );
+
+    return !this.state.robots.length
+      ? <h1>Loading</h1>
+      : <div className='tc'>
+          {/*<h1>Loading</h1>*/}
+          <p className='f1'>ROBOFRIENDS</p>
+          <SearchBox />
+          {this.state.robots.map(robot => {
+            return <Card id={robot.id} name={robot.name} email={robot.email}/>
+          })}
+        </div>
   }
 }
 
