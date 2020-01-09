@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import SearchBox from '../components/SearchBox';
 
 class App extends Component {
   constructor(props) {
@@ -10,9 +11,10 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>Loading</h1>
+      <div className='tc'>
+        {/*<h1>Loading</h1>*/}
         <p className='f1'>ROBOFRIENDS</p>
+        <SearchBox />
       </div>
     );
   }
