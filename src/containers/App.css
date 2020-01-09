@@ -2,6 +2,6 @@
     font-family: "SEGA LOGO FONT";
     src: url('SEGA.woff') format('woff');
 }
-p {
+div > p {
     font-family: "SEGA LOGO FONT";
 }

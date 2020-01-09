@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import SearchBox from '../components/SearchBox';
+import Card from '../components/Card';
 
 class App extends Component {
   constructor(props) {
@@ -15,6 +16,9 @@ class App extends Component {
         {/*<h1>Loading</h1>*/}
         <p className='f1'>ROBOFRIENDS</p>
         <SearchBox />
+        <Card/>
+        <Card/>
+        <Card/>
       </div>
     );
   }
